@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "name": "arkulpa-utils",
+  "author": "Lilxdomi (https://github.com/Lilxdomi)",
+  "description": "Commonly used utils by arkulpa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lilxdomi/arkulpa-utils.git"
+  },
+  "homepage": "https://github.com/Lilxdomi/arkulpa-utils#readme",
+  "bugs": "https://github.com/Lilxdomi/arkulpa-utils/issues",
+  "license": "MIT",
+  "keywords": [
+    "utils",
+    "typescript",
+    "arkulpa"
+  ],
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19.2.4",
+    "jsdom": "^28",
+    "payload": "^3",
+    "prettier": "^3.9.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tsup": "^8",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
+  },
+  "peerDependencies": {
+    "payload": "^3",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "payload": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./payload": {
+      "import": {
+        "types": "./dist/payload/index.d.ts",
+        "default": "./dist/payload/index.js"
+      },
+      "require": {
+        "types": "./dist/payload/index.d.cts",
+        "default": "./dist/payload/index.cjs"
+      }
+    },
+    "./react": {
+      "import": {
+        "types": "./dist/react/index.d.ts",
+        "default": "./dist/react/index.js"
+      },
+      "require": {
+        "types": "./dist/react/index.d.cts",
+        "default": "./dist/react/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "yarn build"
+  }
+}
